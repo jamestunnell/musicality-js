@@ -18,6 +18,13 @@ describe('Pitch', function() {
       expect(p.semitone).to.be.equal(2);
       expect(p.cents).to.be.equal(5);
     });
+
+    it('should handle fractional values', function() {
+      var p = new Pitch(1.5, 2.2, 54.33);
+      expect(p.octave).to.be.equal(1);
+      expect(p.semitone).to.be.equal(8);
+      expect(p.cents).to.be.closeTo(74.33,0.01);
+    });
   });
 
   context('Lowest pitch', function() {
@@ -52,6 +59,24 @@ describe('Pitch', function() {
     describe('#freq', function() {
       it('should equal C1 freq', function() {
         expect(this.p.freq).to.be.closeTo(32.70,0.01);
+      });
+    });
+  });
+
+  context('F#3', function() {
+    before(function() {
+      this.p = new Pitch(3,6);
+    });
+
+    describe('#freq', function() {
+      it('should equal F#3 freq', function() {
+        expect(this.p.freq).to.be.closeTo(185,0.01);
+      });
+    });
+
+    describe('#ratio', function() {
+      it('should equal F#3 freq divided by C0 freq', function() {
+        expect(this.p.ratio).to.be.closeTo(185/16.35,0.01);
       });
     });
   });
