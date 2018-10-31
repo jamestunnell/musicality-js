@@ -1,0 +1,39 @@
+{
+  "name": "musicality",
+  "version": "0.1.0",
+  "description": "Music composition library",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestunnell/musicality-js.git"
+  },
+  "keywords": [
+    "music",
+    "composition",
+    "note",
+    "pitch",
+    "chord",
+    "scale",
+    "song",
+    "score"
+  ],
+  "author": "James Tunnell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamestunnell/musicality-js/issues"
+  },
+  "homepage": "https://github.com/jamestunnell/musicality-js#readme",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
