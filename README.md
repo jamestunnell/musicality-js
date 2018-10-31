@@ -1,0 +1,2 @@
+# musicality-js
+Music composition
