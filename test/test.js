@@ -1,6 +1,8 @@
 'use strict';
 
 var expect = require('chai').expect;
+var isEqual = require('underscore').isEqual;
+
 var Pitch = require('../index').Pitch;
 
 describe('Pitch', function() {
@@ -51,6 +53,18 @@ describe('Pitch', function() {
       it('should equal C1 freq', function() {
         expect(this.p.freq).to.be.closeTo(32.70,0.01);
       });
+    });
+  });
+
+  describe('#transpose', function() {
+    it('should return a new, adjusted pitch', function() {
+      var p1 = new Pitch(4,3);
+      var p2 = new Pitch(4,5);
+      var p3 = p1.transpose(2);
+      expect(isEqual(p3,p2)).to.be.true;
+
+      var p4 = p3.transpose(-2);
+      expect(isEqual(p4,p1)).to.be.true;
     });
   });
 });
