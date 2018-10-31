@@ -18,9 +18,39 @@ describe('Pitch', function() {
     });
   });
 
-  describe('#ratio', function() {
+  context('Lowest pitch', function() {
+    before(function() {
+      this.p = new Pitch(0,0);
+    });
+
+    describe('#ratio', function() {
+      it('should return 1', function() {
+        expect(this.p.ratio).to.be.equal(1);
+      });
+    });
+
+    describe('#freq', function() {
+      it('should equal C0 freq', function() {
+        expect(this.p.freq).to.be.closeTo(16.35,0.01);
+      });
+    });
   });
 
-  describe('#freq', function() {
+  context('Octave above lowest pitch', function() {
+    before(function() {
+      this.p = new Pitch(1,0);
+    });
+
+    describe('#ratio', function() {
+      it('should return 2', function() {
+        expect(this.p.ratio).to.be.equal(2);
+      });
+    });
+
+    describe('#freq', function() {
+      it('should equal C1 freq', function() {
+        expect(this.p.freq).to.be.closeTo(32.70,0.01);
+      });
+    });
   });
 });
