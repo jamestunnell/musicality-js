@@ -1,3 +1,4 @@
 'use strict';
 
-module.exports.Pitch = require('./lib/pitch').Pitch;
+module.exports.Pitch = require('./lib/pitch');
+
