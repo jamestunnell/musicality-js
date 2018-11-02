@@ -1,7 +1,6 @@
 'use strict';
 
 var expect = require('chai').expect;
-var isEqual = require('underscore').isEqual;
 
 var PITCHES = require('../index').PITCHES;
 
