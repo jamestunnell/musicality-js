@@ -6,15 +6,22 @@ var PITCHES = require('../index').PITCHES;
 
 function check_all_octaves(pc)
 {
-    expect(PITCHES[pc+"0"]).to.not.be.undefined;
-    expect(PITCHES[pc+"1"]).to.not.be.undefined;
-    expect(PITCHES[pc+"2"]).to.not.be.undefined;
-    expect(PITCHES[pc+"3"]).to.not.be.undefined;
-    expect(PITCHES[pc+"4"]).to.not.be.undefined;
-    expect(PITCHES[pc+"5"]).to.not.be.undefined;
-    expect(PITCHES[pc+"6"]).to.not.be.undefined;
-    expect(PITCHES[pc+"7"]).to.not.be.undefined;
-    expect(PITCHES[pc+"8"]).to.not.be.undefined;
+  expect(PITCHES[pc+"0"]).to.not.be.undefined;
+  expect(PITCHES[pc+"1"]).to.not.be.undefined;
+  expect(PITCHES[pc+"2"]).to.not.be.undefined;
+  expect(PITCHES[pc+"3"]).to.not.be.undefined;
+  expect(PITCHES[pc+"4"]).to.not.be.undefined;
+  expect(PITCHES[pc+"5"]).to.not.be.undefined;
+  expect(PITCHES[pc+"6"]).to.not.be.undefined;
+  expect(PITCHES[pc+"7"]).to.not.be.undefined;
+  expect(PITCHES[pc+"8"]).to.not.be.undefined;
+}
+
+function check_octave_semitone_cents(p, o, s, c)
+{
+  expect(p.octave).to.be.equal(o);
+  expect(p.semitone).to.be.equal(s);
+  expect(p.cents).to.be.equal(c);
 }
 
 describe('PITCHES', function() {
@@ -84,5 +91,14 @@ describe('PITCHES', function() {
 
   it('should contain B0 - B8', function() {
     check_all_octaves('B');
+  });
+  
+  it('should have the correct octave, semitone, and cents', function() {
+  	// spot checks
+  	check_octave_semitone_cents(PITCHES.C4, 4, 0, 0);
+  	check_octave_semitone_cents(PITCHES.Df5, 5, 1, 0);
+  	check_octave_semitone_cents(PITCHES.B7, 7, 11, 0);
+  	check_octave_semitone_cents(PITCHES.Gs3, 3, 8, 0);
+  	check_octave_semitone_cents(PITCHES.A6, 6, 9, 0);
   });
 });
